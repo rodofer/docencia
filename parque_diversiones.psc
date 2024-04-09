@@ -27,7 +27,7 @@ Algoritmo parque_diversiones
         // Si edad es menor o igual a 13
         Si edad <=13 Entonces
             con_nino = con_nino + 1
-            Escribir "El ni�o paga $", tar_nino
+            Escribir "El niño paga $", tar_nino
         FinSi
 
         // Si edad es mayor o igual a 14 y menor o igual a 64

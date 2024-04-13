@@ -42,4 +42,4 @@ En la tienda El Guatón de la fruta, se requiere implementar un programa que per
 
 9. El menú principal debe repetirse hasta que se seleccione la opción `SALIR` (del programa).
 
-10. El precio de cada producto debe ser definido internamente dentro del programa en forma **aleatoria**.
+10. El precio de cada producto debe ser definido internamente con valores aleatorios.

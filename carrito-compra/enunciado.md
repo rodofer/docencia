@@ -7,7 +7,6 @@ En la tienda El Guatón de la fruta, se requiere implementar un programa que per
     2. Mostrar pedido
     3. Pagar
     4. SALIR
-    Ingresa una opcion
     ~~~
 
 2. En la opción `Agregar producto` del menú principal, el programa debe desplegar un menú secundario con las siguientes opciones:
@@ -16,7 +15,6 @@ En la tienda El Guatón de la fruta, se requiere implementar un programa que per
     2. Manzana
     3. Naranja
     4. VOLVER
-    Ingresa una opcion
     ~~~
 
 3. El menú secundario debe repetirse hasta que se seleccione la opción `VOLVER` (al menú principal).
@@ -42,6 +40,6 @@ En la tienda El Guatón de la fruta, se requiere implementar un programa que per
     - 8.3 El programa debe mostrar por pantalla el mensaje “Pago realizado, gracias por tu compra” y “Tu vuelto es $X”, donde X es la diferencia entre el efectivo y el total a pagar.
     - 8.4 Una vez realizada la compra, el carrito debe quedar vacío.
 
-9. El menú principal debe repetirse hasta que se seleccione la opción `SALIR`.
+9. El menú principal debe repetirse hasta que se seleccione la opción `SALIR` (del programa).
 
 10. El precio de cada producto debe ser definido internamente dentro del programa en forma **aleatoria**.

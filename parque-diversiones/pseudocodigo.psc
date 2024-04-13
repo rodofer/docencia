@@ -1,18 +1,13 @@
 Algoritmo parque_diversiones
     Definir cantidad_personas, edad, total_general, descuento, total_pagar Como Entero
-    // Variables para almacenar los valores de las tarifas
     Definir tar_nino, tar_adulto, tar_adu_may Como Entero
-    // Variables para contabilizar a las personas
     Definir con_nino, con_adulto, con_adu_may Como Entero
-    // Variable para el total a pagar por categoria
     Definir total_pagar_nino, total_pagar_adulto, total_pagar_adu_may Como Entero
-    
-    // Se asigna el valor de las tarifas
+
     tar_nino = 4500
     tar_adulto = 8500
     tar_adu_may = 5000
-    
-    // Se inicializan los contadores
+
     con_nino = 0
     con_adulto = 0
     con_adu_may = 0

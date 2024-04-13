@@ -78,23 +78,23 @@ Algoritmo carrito
             // MOSTRAR PEDIDO
             2:
                 // SI SE AGREGO POR LO MENOS UNA PERA, MANZANA O NARANJA
-                Si contador_peras <> 0 O contador_manzanas <> 0 O contador_naranjas <> 0 Entonces
+                Si contador_peras != 0 O contador_manzanas != 0 O contador_naranjas != 0 Entonces
                     Escribir "PEDIDO"
 
                     // SI SE AGREGARON PERAS AL CARRITO
-                    Si contador_peras <> 0 Entonces
+                    Si contador_peras != 0 Entonces
                         pago_peras = contador_peras * precio_pera
                         Escribir "Peras ", contador_peras, "X", precio_pera, "=", pago_peras
                     FinSi
 
                     // SI SE AGREGARON MANZANAS AL CARRITO
-                    Si contador_manzanas <> 0 Entonces
+                    Si contador_manzanas != 0 Entonces
                         pago_manzanas = contador_manzanas * precio_manzana
                         Escribir "Manzanas ", contador_manzanas, "X", precio_manzana, "=", pago_manzanas
                     FinSi
 
                     // SI SE AGREGARON NARANJAS AL CARRITO
-                    Si contador_naranjas <> 0 Entonces
+                    Si contador_naranjas != 0 Entonces
                         pago_naranjas = contador_naranjas * precio_naranja
                         Escribir "Naranjas ", contador_naranjas, "X", precio_naranja, "=", pago_naranjas
                     FinSi
@@ -110,7 +110,7 @@ Algoritmo carrito
             // PAGAR
             3:
                 // SI POR LO MENOS SE AGREGO UNA PERA, MANZANA O NARANJA
-                Si contador_peras <> 0 O contador_manzanas <> 0 O contador_naranjas <> 0 Entonces
+                Si contador_peras != 0 O contador_manzanas != 0 O contador_naranjas != 0 Entonces
                     // SE VALIDA QUE RUT NO ESTE VACIO
                     Repetir
                         Escribir "Ingresa rut cliente"
@@ -118,7 +118,7 @@ Algoritmo carrito
                         Si rut_cliente == "" Entonces
                             Escribir "El campo Rut es obligatorio"
                         FinSi
-                    Hasta Que rut_cliente <> ""
+                    Hasta Que rut_cliente != ""
 
                     total_pago = pago_peras + paga_naranjas + pago_naranjas
                     Escribir "TOTAL A PAGAR $", total_pago

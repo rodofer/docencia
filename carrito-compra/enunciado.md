@@ -16,10 +16,10 @@ En la tienda El Guatón de la fruta, se requiere implementar un programa que per
     2. Manzana
     3. Naranja
     4. VOLVER
-    Ingresa una opcion:
+    Ingresa una opcion
     ~~~
 
-3. El menú secundario debe repetirse hasta que se seleccione la opción `VOLVER`.
+3. El menú secundario debe repetirse hasta que se seleccione la opción `VOLVER` (al menú principal).
 
 4. En la opción `Pera` del menú secundario, el programa debe preguntar la cantidad de peras que desea agregar al carrito de compra. La cantidad de peras debe ser un número mayor que cero.
 
@@ -37,7 +37,7 @@ En la tienda El Guatón de la fruta, se requiere implementar un programa que per
     - 7.1 El programa debe validar que existan productos en el carrito antes de mostrar el pedido. En caso contrario debe notificar al usuario con el mensaje "El carrito está vacío".
 
 8. En la opción `Pagar` del menú principal, el programa debe validar que existen productos en el carrito antes de continuar con la compra. En caso contrario debe notificar al usuario con el mensaje "El carrito está vacío".
-    - 8.2 El usuario debe ingresar el rut del cliente, este dato no puede ser un valor vacío.
+    - 8.1 El usuario debe ingresar el rut del cliente, este dato no puede ser un valor vacío.
     - 8.2 El programa debe mostrar por pantalla el total a pagar y debe solicitar la cantidad de efectivo para el pago. El valor del efectivo debe ser mayor o igual que el total a pagar.
     - 8.3 El programa debe mostrar por pantalla el mensaje “Pago realizado, gracias por tu compra” y “Tu vuelto es $X”, donde X es la diferencia entre el efectivo y el total a pagar.
     - 8.4 Una vez realizada la compra, el carrito debe quedar vacío.

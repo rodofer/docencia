@@ -1,64 +1,70 @@
 Algoritmo parque_diversiones
-    Definir cantidad_personas, edad, total_general, descuento, total_pagar Como Entero
-    Definir tar_nino, tar_adulto, tar_adu_may Como Entero
-    Definir con_nino, con_adulto, con_adu_may Como Entero
-    Definir total_pagar_nino, total_pagar_adulto, total_pagar_adu_may Como Entero
+    // DEFINICION DE VARIABLES
+    Definir cantidad_personas, edad Como Entero
+    Definir contador_nino, contador_adulto, contador_adulto_mayor Como Entero
+    Definir tarifa_nino, tarifa_adulto, tarifa_adulto_mayor Como Entero
+    Definir total_pago_nino, total_pago_adulto, total_pago_adulto_mayor, total_general, descuento Como Entero
 
-    tar_nino = 4500
-    tar_adulto = 8500
-    tar_adu_may = 5000
+    // INICIALIZACION DE CONTADORES
+    contador_nino = 0
+    contador_adulto = 0
+    contador_adulto_mayor = 0
 
-    con_nino = 0
-    con_adulto = 0
-    con_adu_may = 0
+    // DEFINICION DE TARIFAS
+    tarifa_nino = 4500
+    tarifa_adulto = 8500
+    tarifa_adulto_mayor = 5000
 
-    Escribir Sin Saltar("Ingresa cantidad personas")
+    Escribir "¿Cuantas personas van a ingresar?"
     Leer cantidad_personas
-    
-    Para contador=1 Hasta cantidad_personas Con Paso 1 Hacer
-        Escribir "Ingresa edad persona ", contador
+
+    // CICLO SE REPITE SEGUN CANTIDAD DE PERSONAS
+    Para contador_persona=1 Hasta cantidad_personas Hacer
+        Escribir "Ingresa edad de persona ", contador_persona
         Leer edad
 
-        // Si edad es menor o igual a 13
-        Si edad <=13 Entonces
-            con_nino = con_nino + 1
-            Escribir "El niño paga $", tar_nino
+        // SI EDAD ES MENOR O IGUAL A 13
+        Si edad <= 13 Entonces
+            contador_nino = contador_nino + 1
         FinSi
 
-        // Si edad es mayor o igual a 14 y menor o igual a 64
-        Si edad >= 14 y edad <= 64 Entonces
-            con_adulto = con_adulto + 1
-            Escribir "El adulto paga $", tar_adulto
+        // SI EDAD ES MAYOR O IGUAL A 14 Y MENOR O IGUAL A 64
+        Si edad >= 14 Y edad <= 64 Entonces
+            contador_adulto = contador_adulto + 1
         FinSi
 
-        // Si edad es mayor o igual que 65
+        // SI EDAD ES MAYOR O IGUAL A 65
         Si edad >= 65 Entonces
-            con_adu_may = con_adu_may + 1
-            Escribir "El adulto mayor paga $", tar_adu_may
+            contador_adulto_mayor = contador_adulto_mayor + 1
         FinSi
     FinPara
-    
-    total_pagar_nino = tar_nino*con_nino
-    total_pagar_adulto = tar_adulto*con_adulto
-    total_pagar_adu_may = tar_adu_may*con_adu_may
-    
-    Escribir "Comprobante de Pago"
-    Escribir "-------------------"
-    Escribir "Niño: ", con_nino, " $", total_pagar_nino
-    Escribir "Adulto: ", con_adulto, " $", total_pagar_adulto
-    Escribir "Adulto mayor: ", con_adu_may, " $", total_pagar_adu_may
-    Escribir "-------------------"
-    
-    total_general = total_pagar_nino + total_pagar_adulto + total_pagar_adu_may
-    Escribir "Total General: $", total_general
-    
+
+    // CALCULOS DE PAGO POR CATEGORIA
+    total_pago_nino = contador_nino * tarifa_nino
+    total_pago_adulto = contador_adulto * tarifa_adulto
+    total_pago_adulto_mayor = contador_adulto_mayor * tarifa_adulto_mayor
+
+    // SUMATORIA DE LOS PAGOS POR CATEGORIA
+    total_general = total_pago_nino + total_pago_adulto + total_pago_adulto_mayor
+
+    // SI TOTAL GENERAL ES MAYOR O IGUAL A 30 MIL SE GENERA DESCUENTO DEL 10%
     Si total_general >= 30000 Entonces
         descuento = total_general * 0.10
     SiNo
         descuento = 0
     FinSi
 
+    total_pago = total_general - descuento
+
+    Escribir "---------------------"
+    Escribir " COMPROBANTE DE PAGO "
+    Escribir "---------------------"
+    Escribir "Nino: ", contador_nino, " $", total_pago_nino
+    Escribir "Adulto: ", contador_adulto, " $", total_pago_adulto
+    Escribir "Adulto mayor: ", contador_adulto_mayor, " $", total_pago_adulto_mayor
+    Escribir "---------------------"
+    Escribir "Total general: $", total_general
     Escribir "Descuento: $", descuento
-    total_pagar = total_general - descuento
-    Escribir "Total a Pagar: $", total_pagar
+    Escribir "Total a pagar: $", total_pago
+    Escribir "---------------------"
 FinAlgoritmo

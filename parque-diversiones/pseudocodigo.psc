@@ -56,7 +56,7 @@ Algoritmo parque_diversiones
 
     total_pago = total_general - descuento
 
-    Escribir "---------------------"
+    // SE MUESTRA POR PANTALLA EL COMPROBANTE
     Escribir " COMPROBANTE DE PAGO "
     Escribir "---------------------"
     Escribir "Nino: ", contador_nino, " $", total_pago_nino

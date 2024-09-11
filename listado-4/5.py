@@ -4,6 +4,7 @@ usuario ingrese el valor cero. Luego, mostrar por
 pantalla el promedio de los números positivos
 """
 
+# Maximiliano Villalobos
 sumatoria=0
 contador=0
 

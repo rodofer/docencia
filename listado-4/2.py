@@ -1,6 +1,6 @@
 """
-Solicitar la cantidad de número que el usuario desea introducir,
-luego solicitar esos números y devuelve por pantalla
+Solicitar la cantidad de números que el usuario desea introducir,
+luego solicitar esos números y devolver por pantalla
 el menor y el mayor de ellos
 """
 

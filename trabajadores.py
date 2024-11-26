@@ -1,83 +1,91 @@
-import csv
+import random
 
-lista_trabajadores = []
+listado = []
 
-def registrar(lista:list):
+def generar_codigo():
+    return random.randint(10000, 99999)
+
+def solicitar_nombre():
     while True:
         nombre = input("Nombre: ")
-        # Si el nombre es alfabetico y tiene 6 o mas caracteres
-        if nombre.isalpha() and len(nombre) >= 6:
-            # Si se cumplen las condiciones, salimos del ciclo
+        if nombre.isalpha() and len(nombre) >= 5:
             break
         else:
-            print("El nombre debe ser alfabetico y debe tener por lo menos 6 caracteres")
+            print("El nombre debe tener por lo menos 5 letras")
+    return nombre
 
+def solicitar_apellido():
+    while True:
+        apellido = input("Apellido: ")
+        if apellido.isalpha() and len(apellido) >= 5:
+            break
+        else:
+            print("El apellido debe tener por lo menos 5 letras")
+    return apellido
+
+def solicitar_cargo():
     while True:
         cargo = input("Cargo: ")
-        # Si el cargo es alfabetico y tiene 5 o mas caracteres
         if cargo.isalpha() and len(cargo) >= 5:
             break
         else:
-            print("El cargo debe ser alfabetico y debe tener por lo menos 5 caracteres")
+            print("El cargo debe tener por lo menos 5 letras")
+    return cargo
 
+def solicitar_sueldo():
     while True:
         sueldo = input("Sueldo: ")
         if sueldo.isdigit() and len(sueldo) >= 6:
             break
         else:
-            print("El sueldo debe ser numerico y tener por lo menos 6 digitos")
+            print("El sueldo debe tener por lo menos 6 digitos")
+    return sueldo
 
-    lista.append([nombre, cargo, sueldo])
+def agregar_trabajador():
+    identificador = generar_codigo()
+    nombre = solicitar_nombre()
+    apellido = solicitar_apellido()
+    cargo = solicitar_cargo()
+    sueldo = solicitar_sueldo()
+    listado.append([identificador, nombre, apellido, cargo, sueldo])
 
-def listar(lista:list, cargo):
-    for trabajador in lista:
-        if trabajador[1] == cargo:
-            print(f"Nombre: {trabajador[0]}")
-            print(f"Cargo: {trabajador[1]}")
-            print(f"Sueldo: ${trabajador[2]}")
-            print(".."*20)
+def modificar_trabajador():
+    identificador = input("ID: ")
+    registro_encontrado = False
+    for i in range(len(listado)):
+        if listado[i][0] == identificador:
+            registro_encontrado = True
+            break
+    if registro_encontrado:
+        listado[i][1] = solicitar_nombre()
+        listado[i][2] = solicitar_apellido()
+        listado[i][3] = solicitar_cargo()
+        listado[i][4] = solicitar_sueldo()
+    else:
+        print("No hay trabajador con ese ID")
 
-def reporte(lista, tipo):
-    if tipo == "txt":
-        with open("reporte.txt", "w") as archivo:
-            archivo.write("Reporte de trabajadores \n")
-            archivo.write("="*40+"\n")
-            for trabajador in lista:
-                archivo.write(f"Nombre: {trabajador[0]}\n")
-                archivo.write(f"Cargo: {trabajador[1]}\n")
-                archivo.write(f"Sueldo: {trabajador[2]}\n")
-                archivo.write(f"."*20 +"\n")
-    elif tipo == "csv":
-        with open("reporte.csv", "w") as archivo:
-            escritor = csv.writer(archivo)
-            escritor.writerow(["Nombre trabajador", "Cargo trabajador", "Sueldo trabajador"])
-            for trabajador in lista:
-                escritor.writerows([[trabajador[0], trabajador[1], trabajador[2]]])
-    print("Reporte generado correctamente en archivo.txt")
+def listar_trabajadores():
+    for trabajador in listado:
+        print(trabajador)
 
 while True:
-    print("1. Registrar trabajador")
-    print("2. Listar trabajadores")
-    print("3. Generar reporte TXT")
-    print("4. Generar reporte CSV")
+    print("1. Agregar trabajador")
+    print("2. Modificar trabajador")
+    print("3. Listar trabajadores")
+    print("4. Generar reporte")
     print("5. SALIR")
-    opcion = input("Ingresa una opción: ")
+
+    opcion = input("Opción: ")
 
     if opcion == "1":
-        registrar(lista_trabajadores)
-
+        agregar_trabajador()
     elif opcion == "2":
-        cargo = input("Cargo: ")
-        listar(lista_trabajadores, cargo)
-
+        modificar_trabajador()
     elif opcion == "3":
-        reporte(lista_trabajadores, "txt")
-
+        listar_trabajadores()
     elif opcion == "4":
-        reporte(lista_trabajadores, "csv")
-
+        print()
     elif opcion == "5":
         break
-
     else:
-        print("La opción ingresada es incorrecta")
+        print("La opción es incorrecta")

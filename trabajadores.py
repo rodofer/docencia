@@ -82,6 +82,7 @@ def generar_reporte():
                 archivo.write(f"Nombre: {trabajador[1]} {trabajador[2]}\n")
                 archivo.write(f"Cargo: {trabajador[3]}\n")
                 archivo.write(f"Sueldo: {trabajador[4]}\n")
+                archivo.write("------------------------\n")
     else:
         print("Todavia no hay registros")
 

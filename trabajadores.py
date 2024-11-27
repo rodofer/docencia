@@ -50,23 +50,40 @@ def agregar_trabajador():
     listado.append([identificador, nombre, apellido, cargo, sueldo])
 
 def modificar_trabajador():
-    identificador = input("ID: ")
-    registro_encontrado = False
-    for i in range(len(listado)):
-        if listado[i][0] == identificador:
-            registro_encontrado = True
-            break
-    if registro_encontrado:
-        listado[i][1] = solicitar_nombre()
-        listado[i][2] = solicitar_apellido()
-        listado[i][3] = solicitar_cargo()
-        listado[i][4] = solicitar_sueldo()
+    if len(listado) > 0:
+        identificador = input("ID: ")
+        registro_encontrado = False
+        for i in range(len(listado)):
+            if listado[i][0] == int(identificador):
+                registro_encontrado = True
+                break
+        if registro_encontrado:
+            listado[i][1] = solicitar_nombre()
+            listado[i][2] = solicitar_apellido()
+            listado[i][3] = solicitar_cargo()
+            listado[i][4] = solicitar_sueldo()
     else:
-        print("No hay trabajador con ese ID")
-
+        print("Todavia no hay registros")
+   
 def listar_trabajadores():
     for trabajador in listado:
-        print(trabajador)
+        print(f"Código: {trabajador[0]}")
+        print(f"Nombre: {trabajador[1]} {trabajador[2]}")
+        print(f"Cargo: {trabajador[3]}")
+        print(f"Sueldo: {trabajador[4]}")
+        print("------------------")
+
+def generar_reporte():
+    if len(listado) > 0:
+        with open("reporte.txt", "w") as archivo:
+            archivo.write("Reporte de trabajadores\n")
+            for trabajador in listado:
+                # trabajador[0] es el Identificador
+                archivo.write(f"Nombre: {trabajador[1]} {trabajador[2]}\n")
+                archivo.write(f"Cargo: {trabajador[3]}\n")
+                archivo.write(f"Sueldo: {trabajador[4]}\n")
+    else:
+        print("Todavia no hay registros")
 
 while True:
     print("1. Agregar trabajador")
@@ -84,7 +101,7 @@ while True:
     elif opcion == "3":
         listar_trabajadores()
     elif opcion == "4":
-        print()
+        generar_reporte()
     elif opcion == "5":
         break
     else:
